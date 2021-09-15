@@ -13,6 +13,8 @@ namespace BlogHubMVC.Models
         public string Author { get; set; }
         public DateTime CreationTime { get; set; }
 
+        public string PostPicture { get; set; }
+
         public string GetCreatedTime()
         {
             return CreationTime.ToString("dd-MM-yyyy HH:mm");

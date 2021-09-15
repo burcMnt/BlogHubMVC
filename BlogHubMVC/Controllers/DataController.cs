@@ -1,4 +1,5 @@
-﻿using BlogHubMVC.Entensions;
+﻿using BlogHubMVC.Data;
+using BlogHubMVC.Entensions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -13,20 +14,21 @@ namespace BlogHubMVC.Controllers
     [Authorize]
     public class DataController : Controller
     {
+        private readonly ApplicationDbContext db;
+
+        public DataController(ApplicationDbContext db)
+        {
+            this.db = db;
+        }
         public IActionResult Index()
         {
-            var userId = User.GetId();
-            if (string.IsNullOrEmpty(userId))
-            {
-
-            }
             return View();
         }
 
         [HttpPost]
-        public IActionResult Index(int id)
+        public IActionResult AddBlogPost()
         {
-            return View();
+            return RedirectToAction("Index", "Home");
         }
 
         public IActionResult Delete()

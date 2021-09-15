@@ -16,6 +16,8 @@ namespace BlogHubMVC.Data
 
         [Required, MinLength(150)]
         public string Content { get; set; }
+        public string PostPicture { get; set; }
+        [Required]
         public DateTime CreationTime { get; set; } = DateTime.Now;
 
         [ForeignKey("Author")]
